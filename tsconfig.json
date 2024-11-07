@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "lib": ["ES6", "DOM"]
+  }
+}
+
+// target is the version of ECMAScript that the code will be compiled to
+// lib is the list of library files that are included in the compilation
+// ES6 stands for ECMAScript 6
+// DOM stands for Document Object Model
