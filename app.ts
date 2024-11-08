@@ -130,7 +130,7 @@ class Animal extends Mammal {
   // proteced: accessible within the class and its subclasses
   protected age: number;
   // private: accessible only within the class
-  private hasTail: boolean;
+  private _hasTail: boolean = true;
 
   // constructor function
   constructor(
@@ -148,12 +148,27 @@ class Animal extends Mammal {
   sleep(): void {
     console.log(this.name + " is sleeping");
   }
+
+  // getter and setter methods for private properties
+  get hasTail(): boolean {
+    return this._hasTail;
+  }
+
+  set hasTail(value: boolean) {
+    this._hasTail = value;
+  }
 }
 
 // We create an instance of the Animal class and call the eat method.
 let cat = new Animal("Cat", 2, true, true);
 console.log(cat);
 cat.eat();
+console.log("Find this text");
+
+// this call the getter method
+console.log(cat.hasTail); // true
+// this call the setter method
+console.log((cat.hasTail = false)); // false
 
 // What is an Interface?
 // An interface custom data type, we use it to define the structure for an object.

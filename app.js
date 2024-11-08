@@ -111,6 +111,8 @@ var Animal = /** @class */ (function (_super) {
     function Animal(nameArg, ageArg, hasHairArg, isWarmBloodedArg) {
         // we can use super keyword to call the parent class constructor
         var _this = _super.call(this, hasHairArg, isWarmBloodedArg) || this;
+        // private: accessible only within the class
+        _this._hasTail = true;
         _this.name = nameArg;
         _this.age = ageArg;
         return _this;
@@ -118,12 +120,28 @@ var Animal = /** @class */ (function (_super) {
     Animal.prototype.sleep = function () {
         console.log(this.name + " is sleeping");
     };
+    Object.defineProperty(Animal.prototype, "hasTail", {
+        // getter and setter methods for private properties
+        get: function () {
+            return this._hasTail;
+        },
+        set: function (value) {
+            this._hasTail = value;
+        },
+        enumerable: false,
+        configurable: true
+    });
     return Animal;
 }(Mammal));
 // We create an instance of the Animal class and call the eat method.
 var cat = new Animal("Cat", 2, true, true);
 console.log(cat);
 cat.eat();
+console.log("Find this text");
+// this call the getter method
+console.log(cat.hasTail); // true
+// this call the setter method
+console.log((cat.hasTail = false)); // false
 var dog = new Animal("Dog", 3, true, true);
 console.log(dog);
 dog.sleep();
