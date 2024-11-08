@@ -1,6 +1,21 @@
 // What is an Single Page Application (SPA)?
 // An application with one HTML page, updated dynamically without refreshing the page.
 // Angular is a SPA framework.
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 // What is typescript?
 // TypeScript is a superset of JavaScript, used to build large applications with data types.
 // TypeScript is transpiled to JavaScript.
@@ -58,12 +73,51 @@ var names = ["John", "Doe", "Jane"];
 var person = ["John", 25, true];
 // Classes
 var Person = /** @class */ (function () {
+    // constructor function used for initialization
     function Person(nameArg, ageArg, isStudentArg) {
         this.name = nameArg;
         this.age = ageArg;
         this.isStudent = isStudentArg;
     }
+    Person.prototype.greet = function () {
+        console.log("Hello, my name is ".concat(this.name));
+    };
     return Person;
 }());
+// instantiating a class = creating a object instance
+// new keyword is used to create an object instance
 var person1 = new Person("John", 25, true);
+person1.greet();
 console.log(person1);
+// What is Inheritance?
+// When a class inherits properties or methods from another class.
+// Parent class for person can be mammal
+var Mammal = /** @class */ (function () {
+    // constructor function
+    function Mammal(hasHairArg, isWarmBloodedArg) {
+        this.hasHair = hasHairArg;
+        this.isWarmBlooded = isWarmBloodedArg;
+    }
+    // methods
+    Mammal.prototype.eat = function () {
+        console.log("Mammal is eating");
+    };
+    return Mammal;
+}());
+// we can inherit from mammal class using extends keyword
+var Animal = /** @class */ (function (_super) {
+    __extends(Animal, _super);
+    // constructor function
+    function Animal(nameArg, ageArg, hasHairArg, isWarmBloodedArg) {
+        // we can use super keyword to call the parent class constructor
+        var _this = _super.call(this, hasHairArg, isWarmBloodedArg) || this;
+        _this.name = nameArg;
+        _this.age = ageArg;
+        return _this;
+    }
+    return Animal;
+}(Mammal));
+// We create an instance of the Animal class and call the eat method.
+var cat = new Animal("Cat", 2, true, true);
+console.log(cat);
+cat.eat();
