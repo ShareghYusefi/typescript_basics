@@ -137,9 +137,30 @@ class Animal extends Mammal {
     this.name = nameArg;
     this.age = ageArg;
   }
+
+  sleep(): void {
+    console.log(this.name + " is sleeping");
+  }
 }
 
 // We create an instance of the Animal class and call the eat method.
 let cat = new Animal("Cat", 2, true, true);
 console.log(cat);
 cat.eat();
+
+// What is an Interface?
+// An interface custom data type, we use it to define the structure for an object.
+
+// Interface for a Animal object
+interface IAnimal {
+  name: string;
+  age: number;
+  hasHair: boolean;
+  isWarmBlooded: boolean;
+  eat(): void;
+  sleep(): void;
+}
+
+let dog: IAnimal = new Animal("Dog", 3, true, true);
+console.log(dog);
+dog.sleep();

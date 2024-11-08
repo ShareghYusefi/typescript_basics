@@ -115,9 +115,15 @@ var Animal = /** @class */ (function (_super) {
         _this.age = ageArg;
         return _this;
     }
+    Animal.prototype.sleep = function () {
+        console.log(this.name + " is sleeping");
+    };
     return Animal;
 }(Mammal));
 // We create an instance of the Animal class and call the eat method.
 var cat = new Animal("Cat", 2, true, true);
 console.log(cat);
 cat.eat();
+var dog = new Animal("Dog", 3, true, true);
+console.log(dog);
+dog.sleep();
