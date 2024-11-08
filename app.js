@@ -127,3 +127,9 @@ cat.eat();
 var dog = new Animal("Dog", 3, true, true);
 console.log(dog);
 dog.sleep();
+// Type Assertion
+// Type assertion is used to tell the compiler the type of a variable.
+var message = "Hello, World!";
+// we can use angle brackets to tell the compiler the type of a variable
+var messageLength = message.length;
+var alternateMessageLength = message.length;

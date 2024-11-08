@@ -171,3 +171,11 @@ interface IAnimal {
 let dog: IAnimal = new Animal("Dog", 3, true, true);
 console.log(dog);
 dog.sleep();
+
+// Type Assertion
+// Type assertion is used to tell the compiler the type of a variable.
+
+let message = "Hello, World!";
+// we can use angle brackets to tell the compiler the type of a variable
+let messageLength = (<string>message).length;
+let alternateMessageLength = (message as string).length;
