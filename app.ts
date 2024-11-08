@@ -122,8 +122,15 @@ class Mammal {
 // we can inherit from mammal class using extends keyword
 class Animal extends Mammal {
   // properties
-  name: string;
-  age: number;
+  // What are access modifiers? public, private, protected
+  // These are used to control access to properties and methods in a class.
+
+  // public: accessible within and outside of a class
+  public name: string;
+  // proteced: accessible within the class and its subclasses
+  protected age: number;
+  // private: accessible only within the class
+  private hasTail: boolean;
 
   // constructor function
   constructor(
