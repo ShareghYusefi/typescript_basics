@@ -1,3 +1,4 @@
+"use strict";
 // What is an Single Page Application (SPA)?
 // An application with one HTML page, updated dynamically without refreshing the page.
 // Angular is a SPA framework.
@@ -16,6 +17,7 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+Object.defineProperty(exports, "__esModule", { value: true });
 // What is typescript?
 // TypeScript is a superset of JavaScript, used to build large applications with data types.
 // TypeScript is transpiled to JavaScript.
@@ -91,19 +93,8 @@ person1.greet();
 console.log(person1);
 // What is Inheritance?
 // When a class inherits properties or methods from another class.
-// Parent class for person can be mammal
-var Mammal = /** @class */ (function () {
-    // constructor function
-    function Mammal(hasHairArg, isWarmBloodedArg) {
-        this.hasHair = hasHairArg;
-        this.isWarmBlooded = isWarmBloodedArg;
-    }
-    // methods
-    Mammal.prototype.eat = function () {
-        console.log("Mammal is eating");
-    };
-    return Mammal;
-}());
+// import mammal class from mammal.ts file
+var mammal_1 = require("./mammal");
 // we can inherit from mammal class using extends keyword
 var Animal = /** @class */ (function (_super) {
     __extends(Animal, _super);
@@ -132,7 +123,7 @@ var Animal = /** @class */ (function (_super) {
         configurable: true
     });
     return Animal;
-}(Mammal));
+}(mammal_1.Mammal));
 // We create an instance of the Animal class and call the eat method.
 var cat = new Animal("Cat", 2, true, true);
 console.log(cat);

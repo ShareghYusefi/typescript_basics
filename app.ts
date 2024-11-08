@@ -101,23 +101,8 @@ console.log(person1);
 // What is Inheritance?
 // When a class inherits properties or methods from another class.
 
-// Parent class for person can be mammal
-class Mammal {
-  // properties
-  hasHair: boolean;
-  isWarmBlooded: boolean;
-
-  // constructor function
-  constructor(hasHairArg: boolean, isWarmBloodedArg: boolean) {
-    this.hasHair = hasHairArg;
-    this.isWarmBlooded = isWarmBloodedArg;
-  }
-
-  // methods
-  eat(): void {
-    console.log("Mammal is eating");
-  }
-}
+// import mammal class from mammal.ts file
+import { Mammal } from "./mammal";
 
 // we can inherit from mammal class using extends keyword
 class Animal extends Mammal {
@@ -128,7 +113,7 @@ class Animal extends Mammal {
   // public: accessible within and outside of a class
   public name: string;
   // proteced: accessible within the class and its subclasses
-  protected age: number;
+  age: number;
   // private: accessible only within the class
   private _hasTail: boolean = true;
 
